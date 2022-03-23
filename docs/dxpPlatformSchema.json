@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "entrypoint": {
+      "type": "string"
+	  "description": "Manually specified entrypoint to use in the docker configuration",
+    },
+    "platformPackages": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+		  "description": "Additional packages that should be installed",
+          "properties": {
+            "name": {
+              "type": "string",
+			  "description": "Name of the package",
+			  "enum": ["nodejs"]
+            },
+            "version": {
+              "type": ["integer", "string"],
+			  "description": "Version of the package, latest avalible version will be used if left unspecified"
+            }
+          },
+          "required": [
+            "name"
+          ]
+        }
+      ]
+    }
+  }
+}
